@@ -17,22 +17,22 @@ connectDB()
 
 const app = express()
 
-// Middleware
+
 app.use(express.json())
 app.use(cors())
 app.use(morgan("dev"))
 
-// Routes
+
 app.use("/api/auth", authRoutes)
 
 app.use("/api/feedbacks", feedbackRoutes)
 
-// Testing Route
+
 app.get("/", (req, res) => {
     res.send("Feedback Tracker API Running")
 })
 
-// Error Middleware
+
 app.use(notFound)
 app.use(errorHandler)
 
